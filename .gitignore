@@ -1,0 +1,6 @@
+/webdriver_java/resources/
+/webdriver_java/target/
+
+/.idea/
+/.java-version
+/webdriver_java/webdriver_java.iml

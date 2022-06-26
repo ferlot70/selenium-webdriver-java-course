@@ -28,8 +28,8 @@ jobs:
         working-directory: webdriver_java
         run: mvn test
       - name: Collect build data
+        working-directory: webdriver_java
         if: always()
-        run: expr $(date +%s) - ${START_SEC}
-        #Handle remote server chromedriver
-        # calculate total duration
-          # make sure to run even if a previos step fails
+        run: |
+          echo "TOTAL_DURATION=$(expr $(date +%s) - ${START_SEC})"
+          ./resources/test_result_script.sh

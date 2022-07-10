@@ -31,5 +31,5 @@ jobs:
         working-directory: webdriver_java
         if: always()
         run: |
-          echo "TOTAL_DURATION=$(expr $(date +%s) - ${START_SEC})"
+          echo "github_actions_total_duration $(expr $(date +%s) - ${START_SEC})" | curl --data-binary @- ${{ secrets.PUSHGATEWAY_URL }}/metrics/job/github_actions
           ./resources/test_result_script.sh

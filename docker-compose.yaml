@@ -1,0 +1,23 @@
+version: '3'
+
+# prometheus server
+# access port 9090
+# configuration file to scrape prometheus pushgateway (volumes section)
+services:
+  prometheus:
+    image: prom/prometheus
+    expose:
+      - 9090
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+
+# pushgateway server
+# access port 9091
+  pushgateway:
+    image: prom/pushgateway
+    expose:
+      - 9091
+    ports:
+      - 9091:9091

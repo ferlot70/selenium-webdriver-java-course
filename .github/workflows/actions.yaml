@@ -20,6 +20,11 @@ jobs:
       # set a start time
       - name: Set start time
         run: echo "START_SEC=$(date +%s)" >> $GITHUB_ENV
+      - uses: kvrhdn/gha-buildevents@v1
+        with:
+          apikey: ${{ secrets.BUILDEVENTS_APIKEY }}
+          dataset: my-build-pipeline
+          job-status: ${{ job.status }}
       - uses: actions/checkout@v2
       # install java
       - uses: actions/setup-java@v2
